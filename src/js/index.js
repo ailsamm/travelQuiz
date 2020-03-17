@@ -31,27 +31,29 @@ function handleClickNewGame(){
 };
 
 function handleUserAnswer(){
-    // must make links not clickable after clicking
     $('main').on('click', 'input[type="button"]', (event) => {
         // Remove hover and clicking functionality on answered question
         $("main input[type='button']").css("pointer-events","none");
         $("main input[type='button']").prop("disabled",true);
 
-        const selectedAnswer = $(event.currentTarget).val().toLowerCase();
-        const id = $(event.currentTarget).parent().data("itemId");
-        const correctAnswer = getCorrectAnswer(id);
-        const answerCorrect = correctAnswer === selectedAnswer;; 
-        console.log(`correct answer is: ${correctAnswer}`);
-        console.log(`selected answer is: ${selectedAnswer}`);
+        const selectedAnswerId = $(event.currentTarget).data("answerId");
+        const questionId = $(event.currentTarget).parent().data("questionId");
+        console.log(`answerId is: ${selectedAnswerId}`);
+        const correctAnswerId = getCorrectAnswer(questionId);
+        const answerCorrect = correctAnswerId === selectedAnswerId;; 
+        console.log(`correct answer is: ${correctAnswerId}`);
+        console.log(`selected answer is: ${selectedAnswerId}`);
+        console.log(typeof selectedAnswerId);
+        console.log(typeof correctAnswerId);
         if (answerCorrect){
             console.log("User answer was correct.");
-            handleCorrectAnswer(correctAnswer);
+            handleCorrectAnswer(correctAnswerId);
             correctCount ++;
             updateHeader();
         }
         else {
             console.log("User answer was incorrect.");
-            handleIncorrectAnswer(selectedAnswer, correctAnswer);
+            handleIncorrectAnswer(selectedAnswerId, correctAnswerId);
         }
     });
 }   
@@ -59,7 +61,7 @@ function handleUserAnswer(){
 // NON-EVENT LISTENERS
 function getCorrectAnswer(questionId){
     const curQuestion = QUESTIONS.find(item => item.id === questionId);
-    return curQuestion.correctAnswer;
+    return curQuestion.correctAnswerIndex;
 }
 
 function initialiseQuestions(){
@@ -68,10 +70,11 @@ function initialiseQuestions(){
     questionSet = [...QUESTIONS];
 }
 
-function handleCorrectAnswer(correctAnswer){
+function handleCorrectAnswer(correctAnswerId){
     console.log("I am here");
     $("input[type='button']").each(function() {
-        if ($(this).val().toLowerCase() === correctAnswer){
+        const currentId = $(this).data("answerId");
+        if (currentId === correctAnswerId){
             $(this).addClass("correct-answer");
         }
         else {
@@ -83,12 +86,13 @@ function handleCorrectAnswer(correctAnswer){
       });
 }
 
-function handleIncorrectAnswer(selectedAnswer, correctAnswer){
+function handleIncorrectAnswer(selectedAnswerId, correctAnswerId){
     $("input[type='button']").each(function() {
-        if ($(this).val().toLowerCase() === selectedAnswer.toLowerCase()){
+        const currentId = $(this).data("answerId");
+        if (currentId === selectedAnswerId){
             $(this).addClass("incorrect-answer");
         }
-        else if ($(this).val().toLowerCase() === correctAnswer.toLowerCase()){
+        else if (currentId === correctAnswerId){
             $(this).addClass("correct-answer");
         }
         else {

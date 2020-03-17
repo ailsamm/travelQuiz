@@ -12,7 +12,7 @@ const QUESTIONS = [
     {
         question: "In which city could you find the famous landmark Christ the Redeemer?",
         options: ["Rio de Janeiro", "Caracas", "Mexico City", "Bogota"],
-        correctAnswerIndex: 1,
+        correctAnswerIndex: 0,
         imageSrc: "https://travel-quiz.s3-us-west-1.amazonaws.com/questionImages/christ.jpg",
         imageAlt: "Christ the Redeemer",
         id: cuid()
