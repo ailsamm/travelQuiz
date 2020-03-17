@@ -6,7 +6,7 @@ let questionSet;
 const maxQuestions = 5;
 const welcomeScreen = $("main").clone();
 
-//  EVENT LISTENERS
+//  EVENT LISTENER FUNCTIONS
 function handleGetNewQuestion(){
     $('main').on('click', '.js-next-button', (event) => {
         renderQuestion();
@@ -40,7 +40,7 @@ function handleUserAnswer(){
         const questionId = $(event.currentTarget).parent().data("questionId");
         const correctAnswerId = getCorrectAnswer(questionId);
         const answerCorrect = correctAnswerId === selectedAnswerId;; 
-        
+
         if (answerCorrect){
             console.log("User answer was correct.");
             handleCorrectAnswer(correctAnswerId);
@@ -54,7 +54,7 @@ function handleUserAnswer(){
     });
 }   
 
-// NON-EVENT LISTENERS
+// NON-EVENT LISTENER FUNCTIONS
 function getCorrectAnswer(questionId){
     const curQuestion = QUESTIONS.find(item => item.id === questionId);
     return curQuestion.correctAnswerIndex;
@@ -99,12 +99,6 @@ function handleIncorrectAnswer(selectedAnswerId, correctAnswerId){
     });
 }
 
-function renderWelcomeScreen(){
-    $("main").html(createWelcomeHtml());
-    $("main").addClass("hidden-background");
-    updateHeader();
-};
-
 function renderQuestion(){
     console.log("Rendering a question");
     const curQuestion = getRandomQuestion();
@@ -130,17 +124,23 @@ function getRandomQuestion(){
     return curQuestion;
 }
 
-function renderFinishScreen(){
-    $("main").html(createFinishHtml());
-    $("main").addClass("hidden-background");
-};
-
 function updateHeader(){
     $(".js-question-progress").text(`${questionCount} of ${maxQuestions}`);
     $(".js-current-score").text(`${correctCount}`);
 }
 
-// MAIN HANDLER
+function renderWelcomeScreen(){
+    $("main").html(createWelcomeHtml());
+    $("main").addClass("hidden-background");
+    updateHeader();
+};
+
+function renderFinishScreen(){
+    $("main").html(createFinishHtml());
+    $("main").addClass("hidden-background");
+};
+
+// Main handler
 function initialise(){
     $(initialiseQuestions);
     $(handleGetNewQuestion);
