@@ -15,20 +15,20 @@ function getNewQuestion(){
         $("main").removeClass("hidden-background");
         $("header").removeClass("hidden");
     });
-};
+}
 
 function clickSeeScore(){
     $('main').on('click', '.js-final-button', function()  {
         renderFinishScreen();
     });    
-};
+}
 
 function clickNewGame(){
     $('main').on('click', '.js-new-game-button', function()  {
         initialiseQuestions();
         renderWelcomeScreen();
     });   
-};
+}
 
 function handleUserAnswer(){
     $('main').on('click', 'input[type="button"]', (event) => {
@@ -64,7 +64,7 @@ function getCorrectAnswer(questionId){
 function initialiseQuestions(){
     questionCount = 0;
     correctCount = 0;
-    questionSet = [...QUESTIONS];
+    questionSet = randoSequence(QUESTIONS.length-1).slice(0, maxQuestions);
 }
 
 function handleCorrectAnswer(correctAnswerId){
@@ -102,27 +102,19 @@ function handleIncorrectAnswer(selectedAnswerId, correctAnswerId){
 
 function renderQuestion(){
     console.log("Rendering a question");
-    const curQuestion = getRandomQuestion();
+    const randomIndex = questionSet[questionCount];
     let questionHtml;
     questionCount++;
     if (questionCount < maxQuestions){
-        questionHtml = createQuestionHtml(curQuestion, "js-next-button", "NEXT");
+        questionHtml = createQuestionHtml(randomIndex, "js-next-button", "NEXT");
     }
     else {
-        questionHtml = createQuestionHtml(curQuestion, "js-final-button", "SEE SCORE");
+        questionHtml = createQuestionHtml(randomIndex, "js-final-button", "SEE SCORE");
     }
 
     $("main").html(questionHtml);
     updateHeader();
     
-};
-
-function getRandomQuestion(){
-    // Select random question and then remove it from array so it cannot be repeated
-    const randomIndex = Math.floor(Math.random() * questionSet.length)
-    const curQuestion = questionSet[randomIndex];
-    questionSet.splice(randomIndex,1);
-    return curQuestion;
 }
 
 function updateHeader(){
@@ -135,13 +127,13 @@ function renderWelcomeScreen(){
     $("main").addClass("hidden-background");
     $("header").addClass("hidden");
     updateHeader();
-};
+}
 
 function renderFinishScreen(){
     $("main").html(createFinishHtml());
     $("main").addClass("hidden-background");
     $("header").addClass("hidden");
-};
+}
 
 // Main handler
 function initialise(){

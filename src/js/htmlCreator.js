@@ -1,11 +1,12 @@
-function createQuestionHtml(selectedQuestion, buttonClass, buttonLabel){
-    const options = selectedQuestion.options;
+function createQuestionHtml(randomIndex, buttonClass, buttonLabel){
+    const question =  QUESTIONS[randomIndex];
+    const options = question.options;
     const newQuestion = 
         `<div class="image-container">\
-        <img class="question-image" src=${selectedQuestion.imageSrc} alt=${selectedQuestion.imageAlt}>\
+        <img class="question-image" src=${question.imageSrc} alt=${question.imageAlt}>\
         </div>\
-        <h2 class="question">${selectedQuestion.question}</h2>\
-        <form class="active" method="post" data-question-id="${selectedQuestion.id}">\
+        <h2 class="question">${question.question}</h2>\
+        <form class="active" method="post" data-question-id="${question.id}">\
             <input class="option" data-answer-id=${options.indexOf(options[0])} type="button" value="${options[0]}">
             <input class="option" data-answer-id=${options.indexOf(options[1])} type="button" value="${options[1]}">
             <input class="option" data-answer-id=${options.indexOf(options[2])} type="button" value="${options[2]}">
