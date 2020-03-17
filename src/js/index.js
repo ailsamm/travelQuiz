@@ -7,10 +7,10 @@ const maxQuestions = 5;
 
 //  EVENT LISTENER FUNCTIONS
 function getNewQuestion(){
-    $('main').on('click', '.js-next-button', (event) => {
+    $('main').on('click', '.js-next-button', function() {
         renderQuestion();
     });
-    $('main').on('click', '.js-start-button', (event) => {
+    $('main').on('click', '.js-start-button', function()  {
         renderQuestion();
         $("main").removeClass("hidden-background");
         $("header").removeClass("hidden");
@@ -18,13 +18,13 @@ function getNewQuestion(){
 };
 
 function clickSeeScore(){
-    $('main').on('click', '.js-final-button', (event) => {
+    $('main').on('click', '.js-final-button', function()  {
         renderFinishScreen();
     });    
 };
 
 function clickNewGame(){
-    $('main').on('click', '.js-new-game-button', (event) => {
+    $('main').on('click', '.js-new-game-button', function()  {
         initialiseQuestions();
         renderWelcomeScreen();
     });   
