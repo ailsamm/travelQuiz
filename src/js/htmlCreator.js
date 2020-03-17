@@ -7,10 +7,10 @@ function createQuestionHtml(randomIndex, buttonClass, buttonLabel){
         </div>\
         <h2 class="question">${question.question}</h2>\
         <form class="active" method="post" data-question-id="${question.id}">\
-            <input class="option" data-answer-id=${options.indexOf(options[0])} type="button" value="${options[0]}">
-            <input class="option" data-answer-id=${options.indexOf(options[1])} type="button" value="${options[1]}">
-            <input class="option" data-answer-id=${options.indexOf(options[2])} type="button" value="${options[2]}">
-            <input class="option" data-answer-id=${options.indexOf(options[3])} type="button" value="${options[3]}">
+            <input class="option" data-answer-id=0 type="button" value="${options[0]}">
+            <input class="option" data-answer-id=1 type="button" value="${options[1]}">
+            <input class="option" data-answer-id=2 type="button" value="${options[2]}">
+            <input class="option" data-answer-id=3 type="button" value="${options[3]}">
         </form>\
         <button type="button" class="game-button next-button ${buttonClass} hidden">${buttonLabel}</button>`;
     return newQuestion;
