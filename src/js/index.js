@@ -139,6 +139,7 @@ function renderWelcomeScreen(){
 function renderFinishScreen(){
     $("main").html(createFinishHtml());
     $("main").addClass("hidden-background");
+    $("header").addClass("hidden");
 };
 
 // Main handler
