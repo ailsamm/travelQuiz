@@ -71,9 +71,14 @@ h4 {
 	cursor: pointer;
 }
 
-button:focus,
+.next-button:focus,
 input:focus {
 	outline-color: rgb(31, 19, 44);
+}
+
+.play-again-button:focus,
+.start-button:focus {
+	outline-color: #FFF;
 }
 
 .earth-image {
