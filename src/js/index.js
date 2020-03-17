@@ -105,10 +105,10 @@ function renderQuestion(){
     let questionHtml;
     questionCount ++;
     if (questionCount < maxQuestions){
-        questionHtml = createQuestionHtml(curQuestion);
+        questionHtml = createQuestionHtml(curQuestion, "js-next-button", "NEXT");
     }
     else {
-        questionHtml = createFinalQuestionHtml(curQuestion);
+        questionHtml = createQuestionHtml(curQuestion, "js-final-button", "SEE SCORE");
     }
 
     $("main").html(questionHtml);

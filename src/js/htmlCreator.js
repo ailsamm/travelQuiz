@@ -1,4 +1,4 @@
-function createQuestionHtml(selectedQuestion){
+function createQuestionHtml(selectedQuestion, buttonClass, buttonLabel){
     const options = selectedQuestion.options;
     const newQuestion = 
         `<div class="image-container">\
@@ -11,24 +11,7 @@ function createQuestionHtml(selectedQuestion){
             <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[2])} type="button" value="${selectedQuestion.options[2]}">
             <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[3])} type="button" value="${selectedQuestion.options[3]}">
         </form>\
-        <button type="button" class="game-button next-button js-next-button hidden">NEXT</button>`;
-    return newQuestion;
-} 
-
-function createFinalQuestionHtml(selectedQuestion){
-    const options = selectedQuestion.options;
-    const newQuestion = 
-        `<div class="image-container">\
-        <img class="question-image" src=${selectedQuestion.imageSrc} alt=${selectedQuestion.imageAlt}>\
-        </div>\
-        <h2 class="question">${selectedQuestion.question}</h2>\
-        <form action="" method="post" data-question-id="${selectedQuestion.id}">\
-            <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[0])} type="button" value="${selectedQuestion.options[0]}">
-            <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[1])} type="button" value="${selectedQuestion.options[1]}">
-            <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[2])} type="button" value="${selectedQuestion.options[2]}">
-            <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[3])} type="button" value="${selectedQuestion.options[3]}">
-        </form>\
-        <button type="button" class="game-button next-button js-final-button hidden">SEE SCORE</button>`;
+        <button type="button" class="game-button next-button ${buttonClass} hidden">${buttonLabel}</button>`;
     return newQuestion;
 }
 
