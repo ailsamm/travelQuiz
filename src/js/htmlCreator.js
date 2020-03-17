@@ -4,8 +4,8 @@ function createQuestionHtml(selectedQuestion){
         `<div class="image-container">\
         <img class="question-image" src=${selectedQuestion.imageSrc} alt=${selectedQuestion.imageAlt}>\
         </div>\
-        <form data-question-id="${selectedQuestion.id}">\
-            <h2 class="question">${selectedQuestion.question}</h2>\
+        <h2 class="question">${selectedQuestion.question}</h2>\
+        <form action="" method="post" data-question-id="${selectedQuestion.id}">\
             <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[0])} type="button" value="${selectedQuestion.options[0]}">
             <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[1])} type="button" value="${selectedQuestion.options[1]}">
             <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[2])} type="button" value="${selectedQuestion.options[2]}">
@@ -21,8 +21,8 @@ function createFinalQuestionHtml(selectedQuestion){
         `<div class="image-container">\
         <img class="question-image" src=${selectedQuestion.imageSrc} alt=${selectedQuestion.imageAlt}>\
         </div>\
-        <form data-question-id="${selectedQuestion.id}">\
-            <h2 class="question">${selectedQuestion.question}</h2>\
+        <h2 class="question">${selectedQuestion.question}</h2>\
+        <form action="" method="post" data-question-id="${selectedQuestion.id}">\
             <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[0])} type="button" value="${selectedQuestion.options[0]}">
             <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[1])} type="button" value="${selectedQuestion.options[1]}">
             <input class="option" data-answer-id=${options.indexOf(selectedQuestion.options[2])} type="button" value="${selectedQuestion.options[2]}">
@@ -45,7 +45,7 @@ function createFinishHtml(){
     }
 
     return `<img class="world-image" src="https://travel-quiz.s3-us-west-1.amazonaws.com/world2.jpg" \
-        alt="FINAL SCORE. Planet Earth with lots of famous landmarks like the Eiffel Tower and the Statue of Liberty">\
+        alt="FINAL SCORE">\
         <h1 class="score">${correctCount} out of ${maxQuestions}</h1>\
         <h2 class="feedback">${feedback}</h2>\
         <button type="button" class="play-again-button js-new-game-button">PLAY AGAIN</button>`;
