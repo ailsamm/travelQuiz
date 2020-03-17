@@ -6,7 +6,7 @@ let questionSet;
 const maxQuestions = 5;
 
 //  EVENT LISTENER FUNCTIONS
-function handleGetNewQuestion(){
+function getNewQuestion(){
     $('main').on('click', '.js-next-button', (event) => {
         renderQuestion();
     });
@@ -17,13 +17,13 @@ function handleGetNewQuestion(){
     });
 };
 
-function handleClickSeeScore(){
+function clickSeeScore(){
     $('main').on('click', '.js-final-button', (event) => {
         renderFinishScreen();
     });    
 };
 
-function handleClickNewGame(){
+function clickNewGame(){
     $('main').on('click', '.js-new-game-button', (event) => {
         initialiseQuestions();
         renderWelcomeScreen();
@@ -145,9 +145,9 @@ function renderFinishScreen(){
 // Main handler
 function initialise(){
     $(initialiseQuestions);
-    $(handleGetNewQuestion);
-    $(handleClickSeeScore);
-    $(handleClickNewGame);
+    $(getNewQuestion);
+    $(clickSeeScore);
+    $(clickNewGame);
     $(handleUserAnswer);
     $(renderWelcomeScreen);
 }
