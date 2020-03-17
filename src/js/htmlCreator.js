@@ -5,7 +5,7 @@ function createQuestionHtml(selectedQuestion, buttonClass, buttonLabel){
         <img class="question-image" src=${selectedQuestion.imageSrc} alt=${selectedQuestion.imageAlt}>\
         </div>\
         <h2 class="question">${selectedQuestion.question}</h2>\
-        <form action="" method="post" data-question-id="${selectedQuestion.id}">\
+        <form class="active" method="post" data-question-id="${selectedQuestion.id}">\
             <input class="option" data-answer-id=${options.indexOf(options[0])} type="button" value="${options[0]}">
             <input class="option" data-answer-id=${options.indexOf(options[1])} type="button" value="${options[1]}">
             <input class="option" data-answer-id=${options.indexOf(options[2])} type="button" value="${options[2]}">

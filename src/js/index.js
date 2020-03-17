@@ -35,6 +35,7 @@ function handleUserAnswer(){
         // Remove hover and clicking functionality on answered question
         $("main input[type='button']").css("pointer-events","none");
         $("main input[type='button']").prop("disabled",true);
+        $("form").removeClass("active");
 
         const selectedAnswerId = $(event.currentTarget).data("answerId");
         const questionId = $(event.currentTarget).parent().data("questionId");
@@ -75,7 +76,7 @@ function handleCorrectAnswer(correctAnswerId){
         else {
             $(this).addClass("grey-out");
         }
-        $("button[type='button'").removeClass("hidden");
+        $("button[type='button']").removeClass("hidden");
         $(".question-image").attr("src", "https://travel-quiz.s3-us-west-1.amazonaws.com/correct.jpg");
         $(".question-image").attr("alt", "Correct");
       });
@@ -103,7 +104,7 @@ function renderQuestion(){
     console.log("Rendering a question");
     const curQuestion = getRandomQuestion();
     let questionHtml;
-    questionCount ++;
+    questionCount++;
     if (questionCount < maxQuestions){
         questionHtml = createQuestionHtml(curQuestion, "js-next-button", "NEXT");
     }
