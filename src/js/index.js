@@ -44,7 +44,7 @@ function handleUserAnswer(){
         if (answerCorrect){
             console.log("User answer was correct.");
             handleCorrectAnswer(correctAnswerId);
-            correctCount ++;
+            correctCount++;
             updateHeader();
         }
         else {
