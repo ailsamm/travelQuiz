@@ -57,8 +57,9 @@ function handleUserAnswer(){
 
 // NON-EVENT LISTENER FUNCTIONS
 function getCorrectAnswer(questionId){
-    const curQuestion = QUESTIONS.find(item => item.id === questionId);
-    return curQuestion.correctAnswerIndex;
+    console.log(QUESTIONS[questionSet[questionCount-1]].options[QUESTIONS[questionSet[questionCount-1]].correctAnswerIndex]);
+    const curQuestion = QUESTIONS[questionSet[questionCount-1]];
+    return  curQuestion.correctAnswerIndex;
 }
 
 function initialiseQuestions(){
