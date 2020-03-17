@@ -13,6 +13,7 @@ function handleGetNewQuestion(){
     $('main').on('click', '.js-start-button', (event) => {
         renderQuestion();
         $("main").removeClass("hidden-background");
+        $("header").removeClass("hidden");
     });
 };
 
@@ -131,6 +132,7 @@ function updateHeader(){
 function renderWelcomeScreen(){
     $("main").html(createWelcomeHtml());
     $("main").addClass("hidden-background");
+    $("header").addClass("hidden");
     updateHeader();
 };
 
