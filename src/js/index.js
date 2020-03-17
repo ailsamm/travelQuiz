@@ -4,7 +4,6 @@ let questionCount = 0;
 let correctCount = 0;
 let questionSet;
 const maxQuestions = 5;
-const welcomeScreen = $("main").clone();
 
 //  EVENT LISTENER FUNCTIONS
 function handleGetNewQuestion(){
