@@ -153,9 +153,3 @@ function initialise(){
 }
 
 $(initialise);
-
-
-
-
-
-
