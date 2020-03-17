@@ -38,13 +38,9 @@ function handleUserAnswer(){
 
         const selectedAnswerId = $(event.currentTarget).data("answerId");
         const questionId = $(event.currentTarget).parent().data("questionId");
-        console.log(`answerId is: ${selectedAnswerId}`);
         const correctAnswerId = getCorrectAnswer(questionId);
         const answerCorrect = correctAnswerId === selectedAnswerId;; 
-        console.log(`correct answer is: ${correctAnswerId}`);
-        console.log(`selected answer is: ${selectedAnswerId}`);
-        console.log(typeof selectedAnswerId);
-        console.log(typeof correctAnswerId);
+        
         if (answerCorrect){
             console.log("User answer was correct.");
             handleCorrectAnswer(correctAnswerId);
@@ -71,7 +67,6 @@ function initialiseQuestions(){
 }
 
 function handleCorrectAnswer(correctAnswerId){
-    console.log("I am here");
     $("input[type='button']").each(function() {
         const currentId = $(this).data("answerId");
         if (currentId === correctAnswerId){
