@@ -192,7 +192,7 @@ form {
 		width: 65%;
 	}
 	header {
-		justify-content: space-evenly;
+		justify-content: space-around;
 	}
 	.earth-image {
 		width: 400px;
@@ -205,7 +205,6 @@ form {
 		height: 180px;
 		width: 180px;
 		border-width: 10px;
-		margin: 10px;
 	}
 	.world-image {
 		width: 600px;

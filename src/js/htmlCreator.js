@@ -6,7 +6,7 @@ function createQuestionHtml(randomIndex, buttonClass, buttonLabel){
         <img class="question-image" src=${question.imageSrc} alt=${question.imageAlt}>\
         </div>\
         <h2 class="question">${question.question}</h2>\
-        <form class="active" method="post" data-question-id="${question.id}">\
+        <form class="active" data-question-id="${question.id}">\
             <input class="option" data-answer-id=0 type="button" value="${options[0]}">
             <input class="option" data-answer-id=1 type="button" value="${options[1]}">
             <input class="option" data-answer-id=2 type="button" value="${options[2]}">
